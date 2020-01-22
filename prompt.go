@@ -163,7 +163,9 @@ func (p *Prompt) Run() (string, error) {
 		if err != nil {
 			prompt = render(p.Templates.invalid, p.Label)
 		} else {
-			prompt = render(p.Templates.valid, p.Label)
+			// Please disable or remove this as this line will cause to repeat the label.
+			// Referring the Issue #129
+			// prompt = render(p.Templates.valid, p.Label)
 			if p.IsConfirm {
 				prompt = render(p.Templates.prompt, p.Label)
 			}
